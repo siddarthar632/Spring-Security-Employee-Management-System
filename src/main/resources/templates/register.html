@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Register</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><main class="card">
+<h1>Create account</h1>
+<p class="error" th:if="${error}" th:text="${error}"></p>
+<form th:action="@{/register}" method="post">
+<label>Name</label><input type="text" name="name" th:value="${name}" maxlength="100" required>
+<label>Email</label><input type="email" name="email" th:value="${email}" maxlength="150" required>
+<label>Password (at least 8 characters)</label><input type="password" name="password" minlength="8" maxlength="72" required autocomplete="new-password">
+<button type="submit">Register</button>
+</form>
+<p>Already registered? <a th:href="@{/login}">Login</a></p>
+</main></body></html>

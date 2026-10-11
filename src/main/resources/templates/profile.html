@@ -1,0 +1,4 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head><meta charset="UTF-8"><title>My Profile</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><main class="card"><h1>My Profile</h1><p>Signed in as <strong sec:authentication="name"></strong></p><p>This page requires authentication.</p><a th:href="@{/dashboard}">Back to dashboard</a></main></body></html>

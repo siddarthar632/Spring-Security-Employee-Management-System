@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Employee Form</title><link rel="stylesheet" th:href="@{/css/style.css}"></head>
+<body><main class="card">
+<h1 th:text="${employee.id == null ? 'Add Employee' : 'Edit Employee'}"></h1>
+<p class="error" th:if="${formError}" th:text="${formError}"></p>
+<form th:object="${employee}"
+      th:action="${employee.id == null} ? @{/employees} : @{/employees/update/{id}(id=${employee.id})}"
+      method="post">
+<label>Name</label><input th:field="*{name}" required maxlength="100"><small class="error" th:errors="*{name}"></small>
+<label>Email</label><input type="email" th:field="*{email}" required><small class="error" th:errors="*{email}"></small>
+<label>Department</label><input th:field="*{department}" required><small class="error" th:errors="*{department}"></small>
+<button type="submit">Save</button>
+</form>
+<p><a th:href="@{/employees}">Back to employees</a></p>
+</main></body></html>
